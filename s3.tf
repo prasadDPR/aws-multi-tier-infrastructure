@@ -2,7 +2,7 @@
 # Upload manually: aws s3 cp static/error-pages/ s3://<bucket-name>/ --recursive
 
 resource "aws_s3_bucket" "error_bucket" {
-  bucket = "error-pages-scctf-bucket"
+  bucket = "tf-cloud-error-pages-2025"
   tags = {
     Name = "s3-demo-bucket"
   }
