@@ -9,9 +9,9 @@ resource "aws_db_instance" "rds-db" {
   db_name                = "mydb"
   engine                 = "mysql"
   engine_version         = "8.0.35"
-  instance_class         = "db.m5d.large"
+  instance_class         = "db.t3.micro"
   username               = "prasad"
-  password               = "abcd12345678"
+  password               = var.db_password
   publicly_accessible    = false
   db_subnet_group_name   = aws_db_subnet_group.subnet-group.name
   vpc_security_group_ids = [aws_security_group.rds-sg.id]

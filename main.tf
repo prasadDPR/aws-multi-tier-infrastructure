@@ -1,10 +1,9 @@
 terraform {
-  backend "remote" {
-    hostname     = "app.terraform.io"
-    organization = "aws-statetf-org"
-
-    workspaces {
-      name = "cicd-aws-project"
-    }
+  backend "s3" {
+    bucket         = "yourname-terraform-state"
+    key            = "aws-multi-tier/terraform.tfstate"
+    region         = "us-east-1"
+    dynamodb_table = "terraform-locks"
+    encrypt        = true
   }
 }
