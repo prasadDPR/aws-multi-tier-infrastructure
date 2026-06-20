@@ -1,25 +1,18 @@
 # AWS Infrastructure Automation — Terraform & GitHub Actions
-
 > Complete production-grade multi-tier AWS environment provisioned from zero to live in under 10 minutes with a single code push.
-
 ---
 
 ## Architecture Diagram
-
 ![Hosting in AWS](https://github.com/prasadDPR/cicd-aws-project/assets/121819069/9356c818-bbfa-49f3-b595-9101582deeb7)
-
 ---
 
 ## Overview
-
 This project automates the deployment of a production-grade multi-tier AWS infrastructure using Terraform and GitHub Actions. Every resource is defined as code — fully reproducible, version controlled, and automatically deployed on every push.
-
 **No manual AWS Console changes. No configuration drift. No state conflicts.**
 
 ---
 
 ## Infrastructure Components
-
 | Layer | Resource | Details |
 |---|---|---|
 | Network | VPC | Custom VPC with public and private subnets |
@@ -41,7 +34,6 @@ This project automates the deployment of a production-grade multi-tier AWS infra
 ---
 
 ## CI/CD Pipeline
-
 Every code push triggers the following automated pipeline:
 
 ```
@@ -59,7 +51,6 @@ Code Push → GitHub Actions → Terraform Init → Terraform Plan → Terraform
 ---
 
 ## Security Architecture
-
 - All compute resources deployed in **private subnets**
 - Database tier isolated with **restricted security groups**
 - No direct SSH access — managed via AWS Systems Manager
@@ -70,7 +61,6 @@ Code Push → GitHub Actions → Terraform Init → Terraform Plan → Terraform
 ---
 
 ## Prerequisites
-
 - AWS account with appropriate permissions
 - Terraform >= 1.0 installed
 - GitHub repository with Actions enabled
@@ -80,7 +70,6 @@ Code Push → GitHub Actions → Terraform Init → Terraform Plan → Terraform
 ---
 
 ## Quick Start
-
 **1. Clone the repository**
 ```bash
 git clone https://github.com/prasadDPR/aws-multi-tier-infrastructure.git
@@ -113,7 +102,6 @@ Or simply push to main branch and let GitHub Actions handle it automatically.
 ---
 
 ## Remote State Configuration
-
 State is managed remotely using S3 and DynamoDB:
 
 ```hcl
@@ -131,7 +119,6 @@ terraform {
 ---
 
 ## GitHub Actions Workflow
-
 The pipeline is defined in `.github/workflows/` and performs:
 
 - **On Pull Request** — runs `terraform plan` and posts results as PR comment
@@ -141,7 +128,6 @@ The pipeline is defined in `.github/workflows/` and performs:
 ---
 
 ## Tech Stack
-
 **Infrastructure:** AWS VPC, EC2, RDS, ALB, CloudFront, S3, Route 53, ACM
 **IaC:** Terraform
 **CI/CD:** GitHub Actions
